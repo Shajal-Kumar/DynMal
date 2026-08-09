@@ -1,0 +1,52 @@
+{
+  "package": "com.mobilepay.update.service",
+  "pid": 14823,
+  "duration_seconds": 240,
+  "errors": [],
+  "summary": {
+    "abuse_scores": {
+      "READ_SMS":             95,
+      "SEND_SMS":             88,
+      "READ_CONTACTS":        76,
+      "RECORD_AUDIO":         62,
+      "ACCESS_FINE_LOCATION": 55,
+      "READ_CALL_LOG":        48,
+      "CAMERA":               31,
+      "INTERNET":             90
+    },
+    "top_abused_permissions": ["READ_SMS", "SEND_SMS", "READ_CONTACTS", "INTERNET"],
+    "exfiltration_types": ["sms", "contacts", "location", "device_id"],
+    "unique_remote_ips": [
+      "185.220.101.47",
+      "91.108.4.200",
+      "45.142.212.100"
+    ],
+    "dropper_chain": [
+      "com.mobilepay.update.service → payload_stage2.dex",
+      "payload_stage2.dex → com.system.keylogger.apk"
+    ],
+    "root_detected": false,
+    "crashes": 1,
+    "network_connections": 7,
+    "logcat_events": 1842
+  },
+  "threads": [
+    {"name": "LogcatStreamer",          "status": "active", "events": 1842},
+    {"name": "RootDetectionMonitor",    "status": "active", "events": 3},
+    {"name": "FilesystemWatcher",       "status": "active", "events": 47},
+    {"name": "PackageInstallerWatcher", "status": "active", "events": 2},
+    {"name": "NetstatPoller",           "status": "active", "events": 210},
+    {"name": "MitmproxyRunner",         "status": "active", "events": 94},
+    {"name": "DropperQueueConsumer",    "status": "active", "events": 2},
+    {"name": "CrashRecovery",           "status": "idle",   "events": 1}
+  ],
+  "network_connections": [
+    {"ip": "185.220.101.47", "port": 8080,  "proto": "TCP", "flag": "C2",    "host": "185.220.101.47",               "path": "/api/v2/collect"},
+    {"ip": "185.220.101.47", "port": 443,   "proto": "TCP", "flag": "EXFIL", "host": "185.220.101.47",               "path": "/c2/beacon"},
+    {"ip": "91.108.4.200",   "port": 443,   "proto": "TCP", "flag": "EXFIL", "host": "api.telemetry-push.xyz",       "path": "/push/data"},
+    {"ip": "45.142.212.100", "port": 80,    "proto": "TCP", "flag": "C2",    "host": "update-cdn.mobilepay-service.net", "path": "/payload.dex"},
+    {"ip": "45.142.212.100", "port": 443,   "proto": "TCP", "flag": "BEACON","host": "cdn.dropper-stage2.ru",        "path": "/stage2/check"},
+    {"ip": "8.8.8.8",        "port": 53,    "proto": "UDP", "flag": "DNS",   "host": "8.8.8.8",                      "path": ""},
+    {"ip": "192.168.1.1",    "port": 53,    "proto": "UDP", "flag": "DNS",   "host": "192.168.1.1",                  "path": ""}
+  ]
+}

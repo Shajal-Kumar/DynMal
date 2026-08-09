@@ -1,0 +1,37 @@
+# DynMalTool — Phase 1 (static_analysis.py) dependencies
+# Install: pip install -r requirements.txt
+#
+# Pin strategy: minimum working version specified.
+# androguard 3.x and 4.x have different APIs — pin to 3.3.5 which is
+# the version the codebase was developed and tested against.
+# AnalyzeAPK() return signature and get_strings() / get_value() behaviour
+# differ in 4.x — do not upgrade without regression testing.
+
+# ── Core analysis ─────────────────────────────────────────────
+androguard==3.3.5               # APK/DEX parsing. Do NOT upgrade to 4.x without testing.
+                                # get_value(), get_android_manifest_axml(), AnalyzeAPK()
+                                # all have breaking changes in 4.x.
+
+# ── Dynamic instrumentation ───────────────────────────────────
+frida-tools>=12.0.0             # frida CLI tools (frida, frida-ps, etc.)
+frida>=16.0.0                   # Python bindings — must match frida-server version on device.
+                                # Check: python -c "import frida; print(frida.__version__)"
+                                # Then download matching frida-server from:
+                                # https://github.com/frida/frida/releases
+
+# ── HTTP interception ─────────────────────────────────────────
+mitmproxy>=10.0.0               # Inline Python API used in Phase 2 network monitor.
+
+# ── Streamlit UI ──────────────────────────────────────────────
+streamlit>=1.30.0               # app.py v4.3 — uses st.pills, label_visibility, etc.
+
+# ── Terminal output ───────────────────────────────────────────
+colorama>=0.4.6                 # Cross-platform ANSI colour (Fore, Style).
+
+# ── Config ────────────────────────────────────────────────────
+python-dotenv>=1.0.0            # Loads .env via load_dotenv().
+
+# ── stdlib only (no pip needed) ───────────────────────────────
+# re, sys, json, time, hashlib, zipfile, subprocess, datetime,
+# pathlib, dataclasses, typing, xml.etree.ElementTree,
+# ssl, tempfile, struct, threading, importlib.util

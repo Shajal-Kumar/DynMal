@@ -1,0 +1,146 @@
+{
+  "package": "com.mobilepay.update.service",
+  "apk_name": "MobilePayUpdate_v3.2.1.apk",
+  "apk_size_mb": 4.7,
+  "min_sdk": 21,
+  "target_sdk": 28,
+  "main_activity": "com.mobilepay.update.service.SplashActivity",
+  "has_launcher": true,
+  "pid": 14823,
+  "all_pids": [14823, 14891],
+  "device": {
+    "adb_connected": true,
+    "frida_running": true,
+    "mitmproxy_cert": true,
+    "rooted": true,
+    "screenshot_tier": 1,
+    "model": "Pixel 6a",
+    "android_version": "13"
+  },
+  "summary": {
+    "permission_risk_score": 87,
+    "total_indicators": 11,
+    "top_risk_permissions": [
+      {"name": "READ_SMS",            "risk_score": 10, "level": "dangerous", "description": "Read SMS messages"},
+      {"name": "SEND_SMS",            "risk_score": 10, "level": "dangerous", "description": "Send SMS messages"},
+      {"name": "READ_CONTACTS",       "risk_score": 9,  "level": "dangerous", "description": "Read contact list"},
+      {"name": "RECORD_AUDIO",        "risk_score": 9,  "level": "dangerous", "description": "Access microphone"},
+      {"name": "ACCESS_FINE_LOCATION","risk_score": 8,  "level": "dangerous", "description": "Precise GPS location"},
+      {"name": "READ_CALL_LOG",       "risk_score": 8,  "level": "dangerous", "description": "Read call history"},
+      {"name": "CAMERA",              "risk_score": 7,  "level": "dangerous", "description": "Access camera"},
+      {"name": "WRITE_EXTERNAL_STORAGE","risk_score": 6,"level": "dangerous", "description": "Write to storage"}
+    ],
+    "manifest_issues": [
+      {
+        "rule": "debuggable",
+        "title": "Debuggable Build",
+        "severity": "high",
+        "description": "android:debuggable=true — allows arbitrary code execution via adb on any device.",
+        "component": "application"
+      },
+      {
+        "rule": "allowBackup",
+        "title": "Backup Enabled",
+        "severity": "warning",
+        "description": "android:allowBackup=true — app data can be extracted via adb backup without root.",
+        "component": "application"
+      },
+      {
+        "rule": "usesCleartextTraffic",
+        "title": "Cleartext Traffic Permitted",
+        "severity": "high",
+        "description": "android:usesCleartextTraffic=true — HTTP connections allowed, MITM trivial.",
+        "component": "application"
+      },
+      {
+        "rule": "exported_activity_no_permission",
+        "title": "Exported Activity Without Permission",
+        "severity": "high",
+        "description": "Exported activity accessible to any app without permission check.",
+        "component": "com.mobilepay.update.service.DeepLinkActivity"
+      },
+      {
+        "rule": "min_sdk_low",
+        "title": "Low minSdkVersion (21)",
+        "severity": "warning",
+        "description": "Targets Android 5.0+ — exposes app to known pre-Nougat vulnerabilities.",
+        "component": "uses-sdk"
+      },
+      {
+        "rule": "strandhog",
+        "title": "StrandHogg Task Hijacking",
+        "severity": "high",
+        "description": "singleTask + targetSdk < 28 — vulnerable to UI overlay task hijacking.",
+        "component": "com.mobilepay.update.service.SplashActivity"
+      }
+    ],
+    "certificate": {
+      "self_signed": true,
+      "expired": false,
+      "weak_algorithm": true,
+      "algorithm": "SHA1withRSA",
+      "fingerprint": "A3:9F:2B:11:CC:74:E8:5D:01:FA:33:BC:90:44:2D:7E:88:4C:11:D0:53:AF:62:19:8B:CC:74:00:1A:FF:23:9D"
+    },
+    "code_patterns": {
+      "threats": [
+        {
+          "title": "SMS Harvester",
+          "severity": "high",
+          "description": "SmsManager.sendTextMessage — outbound SMS exfiltration detected in dex bytecode"
+        },
+        {
+          "title": "Dynamic Code Loading",
+          "severity": "high",
+          "description": "DexClassLoader instantiation — loads external DEX/APK at runtime, dropper behaviour"
+        },
+        {
+          "title": "Native Library Execution",
+          "severity": "high",
+          "description": "System.loadLibrary with obfuscated name — possible native payload side-load"
+        },
+        {
+          "title": "Reflection-Based Invocation",
+          "severity": "warning",
+          "description": "java.lang.reflect.Method.invoke — used to obscure API calls from static analysis"
+        },
+        {
+          "title": "Device ID Collection",
+          "severity": "warning",
+          "description": "TelephonyManager.getDeviceId / getImei — harvesting persistent device identifiers"
+        },
+        {
+          "title": "HTTP Plaintext Connection",
+          "severity": "warning",
+          "description": "HttpURLConnection without TLS — credentials and data sent in cleartext"
+        }
+      ],
+      "defences": [
+        {
+          "title": "Root Detection Present",
+          "severity": "good",
+          "description": "Checks for su binary and Magisk paths — app attempts to detect analysis environment"
+        }
+      ]
+    },
+    "indicators": {
+      "urls": [
+        "http://185.220.101.47:8080/api/v2/collect",
+        "http://update-cdn.mobilepay-service.net/payload.dex",
+        "https://185.220.101.47/c2/beacon"
+      ],
+      "ips": [
+        "185.220.101.47",
+        "91.108.4.200",
+        "45.142.212.100"
+      ],
+      "domains": [
+        "mobilepay-service.net",
+        "update-cdn.mobilepay-service.net",
+        "api.telemetry-push.xyz",
+        "cdn.dropper-stage2.ru",
+        "185.220.101.47"
+      ]
+    },
+    "screenshot_tier": 1
+  }
+}
